@@ -12,8 +12,12 @@
           $signature_key = '879sdg78dsfg56sd4g7987eswg76';
           $body = '{"email":"syaiful.octo@gmail.com"}';
           $body_md5 = md5($body);
+          $method = "POST";
+          $req_url = "/v1/test-new-employee";
+          $endpoint = "https://integrasi.delapancommerce.com";
+          $url = $endpoint.$req_url;
   
-          $raw = "POST".'\n'.$body_md5.'\n'.$content.'\n'.$date.'\n'."/v1/test-new-employee";
+          $raw = $method.'\n'.$body_md5.'\n'.$content.'\n'.$date.'\n'. $req_url;
           $s = hash_hmac('sha256',$raw, $signature_key, false);
           $signature =  base64_encode($s);
   
@@ -44,7 +48,6 @@
           var_dump($headers);
           echo '</pre>';
   
-          $url = "https://integrasi.delapancommerce.com/v1/test-new-employee";
           $curl = \curl_init($url);
           curl_setopt($curl, CURLOPT_URL, $url);
           curl_setopt($curl, CURLOPT_POST, true);        
