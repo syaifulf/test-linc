@@ -80,9 +80,10 @@ How this code working:
           ...
           
 9. Close the Curl session
+
           ...
           curl_close($curl);
-          ..
+          ...
           
 10. Show error message if there is error, and show result if there is no error
           
