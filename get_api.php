@@ -29,8 +29,8 @@
   
           $headers = array(
               "Authorization: Basic ". base64_encode("$username:$password"),
-              "Accept: application/json,text/*;q=0.99",
-              "Content-Type: application/json,text/*;q=0.99",           
+              "Accept: $content",
+              "Content-Type: $content",           
               "API-KEY : $api_key",            
               "Signature : $s",
               "Signature-Time : $time_in_ms"
