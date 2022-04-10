@@ -52,13 +52,13 @@ How this code working:
 6. Setting the Curl instance to use with value based on instruction
  
           ...
-          curl_setopt($curl, CURLOPT_URL, $url);
+          curl_setopt($curl, CURLOPT_URL, $url); //pairing Curl with endpoint
           curl_setopt($curl, CURLOPT_POST, true);        
-          curl_setopt($curl, CURLOPT_POSTFIELDS, $body );
+          curl_setopt($curl, CURLOPT_POSTFIELDS, $body ); //including body request with method POST
           curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
           curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
           curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1 );
-          curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+          curl_setopt($curl, CURLOPT_HTTPHEADER, $headers); //including header information
           curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
           curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($curl, CURLOPT_TIMEOUT, 30);
