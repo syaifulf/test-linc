@@ -19,12 +19,16 @@ How this code working:
           $signature_key = '879sdg78dsfg56sd4g7987eswg76';
           $body = '{"email":"syaiful.octo@gmail.com"}';
           $body_md5 = md5($body);
+          $method = "POST";
+          $req_url = "/v1/test-new-employee";
+          $endpoint = "https://integrasi.delapancommerce.com";
+          $url = $endpoint.$req_url;
           ...
   
 3. Encrypt the combination of the Raw Signature and Signature Key using HMAC SHA-256.
 
           ...
-          $raw = "POST".'\n'.$body_md5.'\n'.$content.'\n'.$date.'\n'."/v1/test-new-employee";
+          $raw = $method.'\n'.$body_md5.'\n'.$content.'\n'.$date.'\n'. $req_url;
           $s = hash_hmac('sha256',$raw, $signature_key, false);
           $signature =  base64_encode($s);
           ...
@@ -45,7 +49,6 @@ How this code working:
 5. Initate the url or end point and returns a Curl instance for us to use the URL to work with. 
 
           ...
-          $url = "https://integrasi.delapancommerce.com/v1/test-new-employee";
           $curl = \curl_init($url);
           ...
           
